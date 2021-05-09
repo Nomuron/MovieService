@@ -34,12 +34,12 @@ public class MovieController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Movie> putMovie(@PathVariable Long id, @RequestBody Movie movie) {
-        return ResponseEntity.ok(movieService.putMovie(movie));
+        return ResponseEntity.ok(movieService.putMovie(id, movie));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteMovie(@PathVariable Long id) {
-        movieService.deleteMovie();
+        movieService.deleteMovie(id);
         return ResponseEntity.noContent().build();
     }
 }

@@ -23,11 +23,11 @@ public class MovieService {
         return movie;
     }
 
-    public Movie putMovie(Movie movie) {
+    public Movie putMovie(Long id, Movie movie) {
         return movie;
     }
 
-    public void deleteMovie() {
+    public void deleteMovie(Long id) {
 
     }
 
