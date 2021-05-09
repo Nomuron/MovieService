@@ -27,7 +27,7 @@ public class MovieService {
         return movie;
     }
 
-    public void deleteMovie(Long id) {
+    public void deleteMovie() {
 
     }
 

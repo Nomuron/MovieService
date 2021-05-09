@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/movies")
 public class MovieController {
 
-    MovieService movieService;
+    private MovieService movieService;
 
     public MovieController(MovieService movieService) {
         this.movieService = movieService;
@@ -39,6 +39,7 @@ public class MovieController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteMovie(@PathVariable Long id) {
-        return ResponseEntity.ok().build();
+        movieService.deleteMovie();
+        return ResponseEntity.noContent().build();
     }
 }
