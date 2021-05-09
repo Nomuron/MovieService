@@ -3,10 +3,7 @@ package com.example.movieservice.controller;
 import com.example.movieservice.model.Movie;
 import com.example.movieservice.service.MovieService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +27,18 @@ public class MovieController {
         return ResponseEntity.ok(movieService.findById(id));
     }
 
-    
+    @PostMapping
+    public ResponseEntity<Movie> postMovie(@RequestBody Movie movie) {
+        return ResponseEntity.ok(movie);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Movie> putMovie(@PathVariable Long id, @RequestBody Movie movie) {
+        return ResponseEntity.ok(movie);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteMovie(@PathVariable Long id) {
+        return ResponseEntity.ok().build();
+    }
 }
