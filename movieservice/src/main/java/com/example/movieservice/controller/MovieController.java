@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/movies")
@@ -35,6 +36,11 @@ public class MovieController {
     @PutMapping("/{id}")
     public ResponseEntity<Movie> putMovie(@PathVariable Long id, @RequestBody Movie movie) {
         return ResponseEntity.ok(movieService.putMovie(id, movie));
+    }
+
+    @PutMapping("/{id}/true")
+    public ResponseEntity<Movie> changeBool(@PathVariable Long id) {
+        return ResponseEntity.ok(movieService.changeBoolean(id));
     }
 
     @DeleteMapping("/{id}")
