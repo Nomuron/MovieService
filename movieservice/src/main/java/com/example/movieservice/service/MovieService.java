@@ -44,10 +44,20 @@ public class MovieService {
         }
     }
 
-    public Movie changeBoolean(Long id) throws RuntimeException {
+    public Movie changeBooleanTrue(Long id) throws RuntimeException {
         Optional<Movie> booleanMovie = movieRepository.findById(id);
         if (booleanMovie.isPresent()) {
             booleanMovie.get().setAvailable(true);
+            return movieRepository.save(booleanMovie.get());
+        } else {
+            throw new RuntimeException();
+        }
+    }
+
+    public Movie changeBooleanFalse(Long id) throws RuntimeException {
+        Optional<Movie> booleanMovie = movieRepository.findById(id);
+        if (booleanMovie.isPresent()) {
+            booleanMovie.get().setAvailable(false);
             return movieRepository.save(booleanMovie.get());
         } else {
             throw new RuntimeException();

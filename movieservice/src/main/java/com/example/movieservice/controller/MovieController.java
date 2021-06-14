@@ -39,8 +39,12 @@ public class MovieController {
     }
 
     @PutMapping("/{id}/true")
-    public ResponseEntity<Movie> changeBool(@PathVariable Long id) {
-        return ResponseEntity.ok(movieService.changeBoolean(id));
+    public ResponseEntity<Movie> changeBoolTrue(@PathVariable Long id) {
+        return ResponseEntity.ok(movieService.changeBooleanTrue(id));
+    }
+    @PutMapping("/{id}/false")
+    public ResponseEntity<Movie> changeBoolFalse(@PathVariable Long id) {
+        return ResponseEntity.ok(movieService.changeBooleanFalse(id));
     }
 
     @DeleteMapping("/{id}")
