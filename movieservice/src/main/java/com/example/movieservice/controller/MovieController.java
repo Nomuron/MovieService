@@ -2,9 +2,11 @@ package com.example.movieservice.controller;
 
 import com.example.movieservice.model.Movie;
 import com.example.movieservice.service.MovieService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.ConnectException;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,9 +20,18 @@ public class MovieController {
         this.movieService = movieService;
     }
 
+//    @GetMapping
+//    public ResponseEntity<List<Movie>> findAllMovies() {
+//        return ResponseEntity.ok(movieService.findAll());
+//    }
+
     @GetMapping
     public ResponseEntity<List<Movie>> findAllMovies() {
-        return ResponseEntity.ok(movieService.findAll());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+
+//        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+
+//        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
     @GetMapping("/{id}")
