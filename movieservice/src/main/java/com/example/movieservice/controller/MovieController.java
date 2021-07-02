@@ -20,19 +20,19 @@ public class MovieController {
         this.movieService = movieService;
     }
 
-//    @GetMapping
-//    public ResponseEntity<List<Movie>> findAllMovies() {
-//        return ResponseEntity.ok(movieService.findAll());
-//    }
-
     @GetMapping
     public ResponseEntity<List<Movie>> findAllMovies() {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        return ResponseEntity.ok(movieService.findAll());
+    }
+
+//    @GetMapping
+//    public ResponseEntity<List<Movie>> findAllMovies() {
+//        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
 //        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 
 //        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-    }
+//    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Movie> findMovieById(@PathVariable Long id) {
